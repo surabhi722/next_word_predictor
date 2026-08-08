@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 import keras
-from keras.layers import Embedding
+
 from keras.models import load_model
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -12,7 +12,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 # ------------------------------
 @st.cache_resource
 def load_resources():
-    model = load_model("lstm_model.h5")
+    model = load_model("lstm_model.keras")
     with open("tokenizer.pkl", "rb") as f:
         tokenizer = pickle.load(f)
     with open("max_len.pkl", "rb") as f:
